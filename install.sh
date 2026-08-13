@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+sudo apt update && apt install -y htop mc
+
 command -v opencode >/dev/null || curl -fsSL https://opencode.ai/install | bash
 
 if [ -d /workspaces ]; then
