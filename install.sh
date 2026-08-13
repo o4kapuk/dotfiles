@@ -3,6 +3,8 @@ set -e
 
 sudo apt update && apt install -y htop mc
 
+curl -sS https://webi.sh/gh | sh
+
 command -v opencode >/dev/null || curl -fsSL https://opencode.ai/install | bash
 
 if [ -d /workspaces ]; then
