@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-sudo apt update && apt install -y htop mc
+sudo apt update && sudo apt install -y htop mc
 
 curl -sS https://webi.sh/gh | sh
 
