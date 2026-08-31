@@ -20,3 +20,5 @@ if [ -d /workspaces ]; then
         fi
     fi
 fi
+
+pgrep -f "opencode web" >/dev/null || nohup opencode web --hostname 0.0.0.0 --port 4096 >/dev/null 2>&1 &
