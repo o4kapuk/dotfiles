@@ -21,4 +21,6 @@ if [ -d /workspaces ]; then
     fi
 fi
 
-pgrep -f "opencode web" >/dev/null || nohup opencode web --hostname 0.0.0.0 --port 4096 >/dev/null 2>&1 &
+if ! pgrep -f '[o]pencode web' >/dev/null; then
+    setsid -f opencode web </dev/null >/dev/null 2>&1
+fi
