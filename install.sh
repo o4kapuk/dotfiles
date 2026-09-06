@@ -22,5 +22,5 @@ if [ -d /workspaces ]; then
 fi
 
 if ! pgrep -f '[o]pencode web' >/dev/null; then
-    setsid -f opencode web </dev/null >/dev/null 2>&1
+    setsid -f ~/.opencode/bin/opencode web </dev/null >/dev/null 2>&1
 fi
