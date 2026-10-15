@@ -22,6 +22,8 @@ if [ -d /workspaces ]; then
     fi
 fi
 
+command -v openspec >/dev/null && openspec init --tools claude,opencode,agents --no-animation
+
 if ! pgrep -f '[o]pencode web' >/dev/null; then
     setsid -f ~/.opencode/bin/opencode web </dev/null >/dev/null 2>&1
 fi
