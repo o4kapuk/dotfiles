@@ -5,7 +5,7 @@ sudo apt update && sudo apt install -y htop mc tmux
 
 curl -sS https://webi.sh/gh | sh
 
-command -v opencode >/dev/null || curl -fsSL https://opencode.ai/install | bash
+command -v opencode >/dev/null || curl -fsSL https://opencode.ai/v2/install | bash
 command -v claude >/dev/null || curl -fsSL https://claude.ai/install.sh | bash
 
 if [ -d /workspaces ]; then
