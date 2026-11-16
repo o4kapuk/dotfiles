@@ -1,10 +1,9 @@
 #!/bin/bash
 set -e
 
-sudo apt update && sudo apt install -y htop mc tmux
+sudo apt update && sudo apt install -y htop mc tmux stow
 
-curl -sS https://webi.sh/gh | sh
-
+command -v gh >/dev/null || curl -sS https://webi.sh/gh | sh
 command -v opencode >/dev/null || curl -fsSL https://opencode.ai/install | bash
 command -v claude >/dev/null || curl -fsSL https://claude.ai/install.sh | bash
 
@@ -22,6 +21,6 @@ if [ -d /workspaces ]; then
     fi
 fi
 
-if ! pgrep -f '[o]pencode web' >/dev/null; then
+if ! pgrep -f '[o]pencode serve' >/dev/null; then
     setsid -f ~/.opencode/bin/opencode serve </dev/null >/dev/null 2>&1
 fi
