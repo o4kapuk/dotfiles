@@ -3,6 +3,25 @@ set -e
 
 sudo apt update && sudo apt install -y htop mc tmux stow
 
+DOTFILES_DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+
+# Deploy configs with stow. A pre-existing plain file is moved to .bak,
+# otherwise stow would fail on the conflict.
+for pkg_dir in "$DOTFILES_DIR"/*/; do
+    pkg="$(basename "$pkg_dir")"
+    while IFS= read -r -d '' src; do
+        target="$HOME/${src#"$DOTFILES_DIR/$pkg/"}"
+        mkdir -p "$(dirname "$target")"
+        # Anything already there that isn't our own link gets moved aside
+        # (numbered backups: .bak, .bak.~1~, ... never overwrite an old one).
+        if { [ -e "$target" ] || [ -L "$target" ]; } &&
+           [ "$(readlink -f "$target")" != "$(readlink -f "$src")" ]; then
+            mv --backup=numbered "$target" "$target.bak"
+        fi
+    done < <(find "$DOTFILES_DIR/$pkg" -type f -print0)
+    stow --no-folding -d "$DOTFILES_DIR" -t "$HOME" -R "$pkg"
+done
+
 command -v gh >/dev/null || curl -sS https://webi.sh/gh | sh
 command -v opencode >/dev/null || curl -fsSL https://opencode.ai/install | bash
 command -v claude >/dev/null || curl -fsSL https://claude.ai/install.sh | bash

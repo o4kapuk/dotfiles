@@ -1,0 +1,5 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // Model used for lightweight tasks, including session title generation
+  "small_model": "openai/gpt-6-luna"
+}

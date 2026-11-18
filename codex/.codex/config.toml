@@ -1,0 +1,11 @@
+openai_base_url = "http://dev.screeps.com:8317/v1"
+model = "gpt-6-luna"
+model_reasoning_effort = "medium"
+[tui]
+screen_reader_detection_done = true
+
+[tui.model_availability_nux]
+"gpt-6.1-sol" = 1
+
+[projects."/workspaces/screeps-codespace"]
+trust_level = "trusted"

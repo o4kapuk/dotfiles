@@ -1,0 +1,29 @@
+{
+  "providerModelPreferences": {
+    "claudeAgent": {
+      "hiddenModels": [],
+      "modelOrder": []
+    }
+  },
+  "projectSettingsFolded": true,
+  "idleCompaction": "onReturn",
+  "providerInstances": {
+    "codex": {
+      "driver": "codex",
+      "enabled": true
+    },
+    "opencode": {
+      "driver": "opencode",
+      "displayName": "OpenCode",
+      "enabled": true
+    }
+  },
+  "usageLimitSources": {
+    "cliproxy-dev.screeps.com-8317": {
+      "kind": "cliproxy",
+      "url": "http://dev.screeps.com:8317/",
+      "managementKey": "••••••",
+      "enabled": true
+    }
+  }
+}

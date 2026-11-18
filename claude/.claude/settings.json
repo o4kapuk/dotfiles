@@ -1,0 +1,9 @@
+{
+  "theme": "dark",
+  "model": "opus",
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "includeCoAuthoredBy": false
+}
